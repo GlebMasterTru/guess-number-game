@@ -1,0 +1,149 @@
+@charset "UTF-8";
+body {
+  background-image: url("../img/nice_bg.avif");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.container {
+  margin-top: 40px;
+  width: 550px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(247, 247, 247);
+  border-radius: 20px;
+  border: rgb(139, 139, 139) 1px solid;
+  font-weight: 500;
+}
+
+h1 {
+  margin-top: -10px;
+}
+
+h2 {
+  margin-top: -5px;
+}
+
+.text {
+  text-align: center;
+  font-size: 18px;
+}
+
+#btn_start {
+  margin-top: 40px;
+  width: 200px;
+  height: 60px;
+  border-radius: 20px;
+  border: rgb(6, 180, 6) 2px solid;
+  background: rgb(167, 247, 167);
+  color: rgb(78, 78, 78);
+  font-weight: 550;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#btn_start:active {
+  border: rgb(5, 163, 5) 2px solid;
+  background: lightgreen;
+}
+
+.answer_form {
+  display: none;
+  align-items: center; /* Выравниваем элементы по центру вертикально */
+  gap: 15px; /* Добавляем пространство между элементами */
+  margin-top: 40px;
+}
+
+.answer_form > input {
+  width: 300px;
+  height: 46px; /* Увеличиваем высоту для выравнивания */
+  text-align: center;
+  font-size: 30px;
+  box-sizing: border-box; /* Учитываем padding и border в общей высоте */
+  border-radius: 20px;
+  border: 2px solid #ccc; /* Добавляем границу для согласованности */
+  padding: 0 10px; /* Добавляем отступы внутри инпута */
+}
+
+#btn_ok {
+  height: 46px; /* Делаем такую же высоту как у инпута */
+  width: 70px;
+  border-radius: 10px;
+  margin-bottom: 0; /* Убираем нижний отступ */
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rgb(6, 180, 6) 2px solid;
+  background: rgb(167, 247, 167);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#btn_ok:active {
+  border: rgb(5, 163, 5) 2px solid;
+  background: lightgreen;
+}
+
+.result {
+  display: none;
+  width: 330px;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 550;
+}
+
+.buttons {
+  display: none;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 385px;
+  margin-top: 10px;
+}
+
+#btn_restart {
+  display: block;
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  border: rgb(6, 180, 6) 2px solid;
+  background: rgb(167, 247, 167);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#btn_restart:active {
+  border: rgb(5, 163, 5) 2px solid;
+  background: lightgreen;
+}
+
+#btn_rules {
+  display: block;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  border: rgb(6, 180, 6) 2px solid;
+  background: rgb(167, 247, 167);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#btn_rules:active {
+  border: rgb(5, 163, 5) 2px solid;
+  background: lightgreen;
+}/*# sourceMappingURL=style.css.map */

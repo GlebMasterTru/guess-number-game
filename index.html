@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Угадай число!</title>
+		<link
+			rel="stylesheet"
+			href="styles/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Игра "Угадай число"</h1>
+			<h2>Правила игры:</h2>
+			<div class="text">
+				Я загадываю число в диапазоне от 1 до 100. <br />
+				Tвоя задача попытаться угадать загаданное число, делая свои предположения. <br />
+				После каждой попытки я буду давать подсказки, например: <br />
+				"Загаданное число больше" или "Загаданное число меньше". <br /><br />
+				Суть игры: угадать загаданное число за минимальное <br />количество попыток.
+			</div>
+		</div>
+		<button id="btn_start">Начать игру</button>
+
+		<div class="answer_form">
+			<input
+				id="input_answer"
+				type="text" />
+			<button id="btn_ok">OK</button>
+		</div>
+		<div class="result">Введи любое число от 1 до 100</div>
+		<div class="buttons">
+			<button id="btn_restart">Начать заново</button>
+			<button id="btn_rules">Правила</button>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
