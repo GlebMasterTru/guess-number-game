@@ -12,44 +12,59 @@ const btn_comeback = document.querySelector("#btn_rules")
 
 let number
 let attempts = 0
+let gameActive = false
 
 const start_game = () => {
-	number = Math.floor(Math.random() * 1000000) + 1
+	number = Math.floor(Math.random() * 100) + 1
 	attempts = 0
+	gameActive = true
 
 	answer_form.style.display = "flex"
 	btns.style.display = "flex"
 	result.style.display = "block"
+	btns.style.marginTop = "0px"
 
 	input.focus()
 	input.value = ""
+	input.disabled = false
+	btn_ok.disabled = false
 
 	result.textContent = "Введи любое число от 1 до 100"
 }
 
 const game_logic = () => {
-	let user_number = input.value
-	console.log(number, user_number)
+	if (gameActive === true) {
+		let user_number = input.value
+		console.log(number, user_number)
 
-	if (isNaN(user_number) || user_number == undefined || user_number == null || user_number == "") {
-		result.textContent = "Пожалуйста, введите число!"
+		if (isNaN(user_number) || user_number == undefined || user_number == null || user_number == "") {
+			result.textContent = "Пожалуйста, введите число!"
+			return
+		}
+
+		if (number > user_number) {
+			attempts++
+			btns.style.marginTop = "20px"
+			result.innerHTML = `Загаданное число больше! <br/>Попыток: ${attempts}`
+			input.value
+			input.value = ""
+			input.focus()
+		} else if (number < user_number) {
+			attempts++
+			btns.style.marginTop = "20px"
+			result.innerHTML = `Загаданное число меньше! <br/>Попыток: ${attempts}`
+			input.value = ""
+			input.focus()
+		} else if (number == user_number) {
+			gameActive = false
+			btns.style.marginTop = "20px"
+			result.innerHTML = `Поздравляю! Вы угадали! <br/>На это ушло ${attempts} попытки`
+			input.value = "ого вау"
+			input.disabled = true
+			btn_ok.disabled = true
+		}
+	} else if (gameActive === false) {
 		return
-	}
-
-	if (number > user_number) {
-		attempts++
-		result.innerHTML = `Загаданное число больше! <br/>Попыток: ${attempts}`
-		input.value
-		input.value = ""
-		input.focus()
-	} else if (number < user_number) {
-		attempts++
-		result.innerHTML = `Загаданное число меньше! <br/>Попыток: ${attempts}`
-		input.value = ""
-		input.focus()
-	} else if (number == user_number) {
-		result.innerHTML = `Поздравляю! Вы угадали! <br/>На это ушло ${attempts} попытки`
-		input.value = ""
 	}
 }
 
@@ -100,3 +115,6 @@ btn_comeback.addEventListener("click", () => {
 // 		}
 // 	}
 // }
+
+// сделать попытки сверху а вместо попыток где они сейчас вариацию от какого числа до какого искать
+// например было от 0 до 100, написал 50, высветило больше, тогда искать от 50 до 100, типо такого
