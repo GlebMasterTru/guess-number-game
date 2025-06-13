@@ -64,27 +64,27 @@ h2 {
 
 .answer_form {
 	display: none;
-	align-items: center; /* Выравниваем элементы по центру вертикально */
-	gap: 15px; /* Добавляем пространство между элементами */
+	align-items: center;
+	gap: 15px;
 	margin-top: 40px;
 }
 
 .answer_form > input {
 	width: 300px;
-	height: 46px; /* Увеличиваем высоту для выравнивания */
+	height: 46px;
 	text-align: center;
 	font-size: 30px;
-	box-sizing: border-box; /* Учитываем padding и border в общей высоте */
+	box-sizing: border-box;
 	border-radius: 20px;
-	border: 2px solid #ccc; /* Добавляем границу для согласованности */
-	padding: 0 10px; /* Добавляем отступы внутри инпута */
+	border: 2px solid #ccc;
+	padding: 0 10px;
 }
 
 #btn_ok {
-	height: 46px; /* Делаем такую же высоту как у инпута */
+	height: 46px;
 	width: 70px;
 	border-radius: 10px;
-	margin-bottom: 0; /* Убираем нижний отступ */
+	margin-bottom: 0;
 	padding: 0;
 	box-sizing: border-box;
 
@@ -102,6 +102,13 @@ h2 {
 #btn_ok:active {
 	border: rgb(5, 163, 5) 2px solid;
 	background: lightgreen;
+}
+
+#btn_ok:disabled {
+	opacity: 0.9;
+	cursor: not-allowed;
+	color: grey;
+	border: lightgray solid 1px;
 }
 
 .result {

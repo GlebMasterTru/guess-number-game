@@ -9,10 +9,9 @@ const result = document.querySelector(".result")
 const btns = document.querySelector(".buttons")
 const btn_restart = document.querySelector("#btn_restart")
 const btn_comeback = document.querySelector("#btn_rules")
-
 let number
-let attempts = 0
-let gameActive = false
+let attempts
+let gameActive
 
 const start_game = () => {
 	number = Math.floor(Math.random() * 100) + 1
@@ -33,39 +32,37 @@ const start_game = () => {
 }
 
 const game_logic = () => {
-	if (gameActive === true) {
-		let user_number = input.value
-		console.log(number, user_number)
+	if (!gameActive) return
 
-		if (isNaN(user_number) || user_number == undefined || user_number == null || user_number == "") {
-			result.textContent = "Пожалуйста, введите число!"
-			return
-		}
+	const userInput = input.value
+	const user_number = parseInt(userInput)
+	console.log(number, user_number)
 
-		if (number > user_number) {
-			attempts++
-			btns.style.marginTop = "20px"
-			result.innerHTML = `Загаданное число больше! <br/>Попыток: ${attempts}`
-			input.value
-			input.value = ""
-			input.focus()
-		} else if (number < user_number) {
-			attempts++
-			btns.style.marginTop = "20px"
-			result.innerHTML = `Загаданное число меньше! <br/>Попыток: ${attempts}`
-			input.value = ""
-			input.focus()
-		} else if (number == user_number) {
-			gameActive = false
-			btns.style.marginTop = "20px"
-			result.innerHTML = `Поздравляю! Вы угадали! <br/>На это ушло ${attempts} попытки`
-			input.value = "ого вау"
-			input.disabled = true
-			btn_ok.disabled = true
-		}
-	} else if (gameActive === false) {
+	if (isNaN(user_number) || user_number == undefined || user_number == null || user_number == "") {
+		result.textContent = "Пожалуйста, введите число!"
 		return
 	}
+
+	attempts++
+	btns.style.marginTop = "20px"
+
+	if (number > user_number) {
+		result.innerHTML = `Загаданное число больше! <br/>Попыток: ${attempts}`
+	} else if (number < user_number) {
+		result.innerHTML = `Загаданное число меньше! <br/>Попыток: ${attempts}`
+	} else if (number == user_number) {
+		gameActive = false
+		result.innerHTML = `Поздравляю! Вы угадали! <br/>На это ушло ${attempts} попытки`
+		input.value = "ого вау"
+		input.placeholder = "ого вау"
+		input.disabled = true
+		btn_ok.disabled = true
+
+		return
+	}
+
+	input.value = ""
+	input.focus()
 }
 
 btn_start.addEventListener("click", () => {
